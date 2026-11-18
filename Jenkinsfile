@@ -29,8 +29,7 @@ pipeline {
 
     post {
         always {
-            allure([
-                [reports: [[path: 'allure-results']]]
-            ])
+            allure commandline: 'Allure_Mac', includeProperties: false, jdk: '', resultPolicy: 'LEAVE_AS_IS', results: [[path: 'allure-results']]
         }
+    }
 }
