@@ -16,8 +16,8 @@ class TestCalculator:
 
     # Attach custom text/logs to the Allure report
     allure.attach(
-        f"Input values: a={a}, b={b}\nComputed Result: {result}",
-        name="Addition Calculation Log",
+        "hello world!",
+        name="Attachment example",
         attachment_type=allure.attachment_type.TEXT,
     )
 
