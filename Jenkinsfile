@@ -31,7 +31,7 @@ pipeline {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     sh '''
                         rm -rf allure-results
-                        ./.venv/bin/pytest "${params.TEST_FILTER}" --alluredir=allure-results
+                        ./.venv/bin/pytest "$TEST_FILTER" --alluredir=allure-results
                     '''
                 }
             }
