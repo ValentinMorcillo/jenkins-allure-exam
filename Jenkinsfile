@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    parameters {
+        choice(
+            name: 'TEST_FILTER',
+            choices: ['test_1.py', 'test_2.py'],
+            description: 'Select the test file to execute'
+        )
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -21,7 +29,10 @@ pipeline {
         stage('Run Tests') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh './.venv/bin/pytest test_1.py --alluredir=allure-results'
+                    sh '''
+                        rm -rf allure-results
+                        ./.venv/bin/pytest "${params.TEST_FILTER}" --alluredir=allure-results
+                    '''
                 }
             }
         }
