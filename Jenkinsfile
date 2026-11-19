@@ -28,7 +28,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     sh '''
                         rm -rf allure-results
                         ./.venv/bin/pytest "${params.TEST_FILTER}" --alluredir=allure-results
