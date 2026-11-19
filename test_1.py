@@ -15,14 +15,10 @@ class TestCalculator:
       result = a + b
 
     # Attach custom text/logs to the Allure report
-    allure.attach(
-        "hello world!",
-        name="Attachment example",
-        attachment_type=allure.attachment_type.TEXT,
-    )
+    allure.attach("hello world!", name="Attachment example", attachment_type=allure.attachment_type.TEXT, )
 
     with allure.step("Step 3: Assert result equals 5"):
-      assert result == 5
+      assert result == 7
 
   @allure.title("Test Case: Subtract two numbers")
   @allure.severity(allure.severity_level.NORMAL)
