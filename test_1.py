@@ -18,7 +18,7 @@ class TestCalculator:
     allure.attach("hello world!", name="Attachment example", attachment_type=allure.attachment_type.TEXT, )
 
     with allure.step("Step 3: Assert result equals 5"):
-      assert result == 7
+      assert result == 5
 
   @allure.title("Test Case: Subtract two numbers")
   @allure.severity(allure.severity_level.NORMAL)
